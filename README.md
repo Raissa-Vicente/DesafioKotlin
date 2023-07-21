@@ -17,8 +17,6 @@ Para executar o SimCity FastFood, siga as instruções abaixo:
 - Localize o arquivo main.kt e execute a função main().
 - O programa será iniciado e apresentará um menu inicial com as opções de "Lanche" e "Bebida".
 - Escolha a opção desejada digitando o número correspondente e siga as instruções no console para fazer os pedidos.
-- Aproveite a promoção especial de 10 ano do SimCity FastFood, com adicionais gratuitos para cada hambúrguer comprado!
-
 
 ## Linguagem de uso: **Kotlin**
 Um trecho de código escrito em Kotlin:
