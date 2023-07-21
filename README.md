@@ -9,6 +9,17 @@
 - **Exibir Carrinho de Compras:** Durante a compra será exibido para o usuário os itens presentes no carinho até o momento.
 - **Finalizar a Compra:** O usuário pode finalizar a compra, escolhendo a forma de pagamento: cartão de crédito, cartão de débito, vale-refeição ou dinheiro.
 
+## Como Executar
+Para executar o SimCity FastFood, siga as instruções abaixo:
+### Passos para Execução
+- Clone o repositório do SimCity FastFoodr para o seu computador ou baixe-o como um arquivo ZIP.
+- Abra o projeto no IntelliJ IDEA (ou qualquer outra IDE que suporte Kotlin).
+- Localize o arquivo main.kt e execute a função main().
+- O programa será iniciado e apresentará um menu inicial com as opções de "Lanche" e "Bebida".
+- Escolha a opção desejada digitando o número correspondente e siga as instruções no console para fazer os pedidos.
+- Aproveite a promoção especial de 10 ano do SimCity FastFood, com adicionais gratuitos para cada hambúrguer comprado!
+
+
 ## Linguagem de uso: **Kotlin**
 Um trecho de código escrito em Kotlin:
 ~~~kotlin
