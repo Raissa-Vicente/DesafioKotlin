@@ -17,7 +17,7 @@ fun main() {
                 2 -> carrinho.comprarBebida()
                 else -> println("Opção inválida, tente novamente!")
             }
-            TimeUnit.SECONDS.sleep(3)
+            TimeUnit.SECONDS.sleep(5)
         }catch (exception: NumberFormatException){
             println("Formato inválido, para escolher o item, você deve informar o número dele!")
         }
