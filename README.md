@@ -2,8 +2,6 @@
 
 `O projeto "Totem de Auto-Atendimento" é uma implementação básica criada com o objetivo de facilitar o atendimento dos clientes ao realizarem a compra de seus lanches em um FastFood.`
 
-
-
 ## Funcionalidades
 - **Comprar Lanche:** Permite ao usuário escolher e comprar lanches disponíveis, como "X-Burger" e "X-Salada". O usuário pode escolher a quantidade desejada de cada lanche.
 - **Comprar Bebida:** Permite ao usuário escolher e comprar bebidas disponíveis, como "Refrigerante" e "Suco". O usuário pode escolher a quantidade desejada de cada bebida.
@@ -14,8 +12,9 @@
 ## Linguagem de uso: **Kotlin**
 Um trecho de código escrito em Kotlin:
 ~~~kotlin
-for ((index, ingrediente) in listaProdutos[code]?.descricao?.withIndex() ?: emptyList<String>().withIndex()) {
-    println("${index + 1}. $ingrediente")
+if (value in 1 until (listaProdutos[code]?.descricao?.size ?: 0)) {
+    listaProdutos[code]?.descricao?.removeAt(value - 1)
+    exibirIngrediente(code)
 }
 ~~~
 ### **Pessoa Autora**
