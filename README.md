@@ -9,8 +9,8 @@
 - **Exibir Carrinho de Compras:** Durante a compra sera exibido para o usuario os itens presentes no carinho até o momento.
 - **Finalizar a Compra:** O usuário pode finalizar a compra, escolhendo a forma de pagamento: cartão de crédito, cartão de débito, vale-refeição ou dinheiro.
 
-## Pessoa Autora
+### **Pessoa Autora**
 
-![Raissa Vicente](C:\Users\raissa.carvalho\Downloads\Foto Raissa.png)
+*[Raissa Vicente](https://github.com/RaiVD)*
 
 
