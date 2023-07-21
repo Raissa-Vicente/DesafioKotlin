@@ -11,6 +11,6 @@
 
 ## Pessoa Autora
 
-![Raissa Vicente](C:\Users\raissa.carvalho\Downloads\WhatsApp Image 2023-01-31 at 11.30.24.jpeg)
+![Raissa Vicente](C:\Users\raissa.carvalho\Downloads\Foto Raissa.png)
 
 
