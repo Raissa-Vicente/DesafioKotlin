@@ -1,4 +1,5 @@
 package Compra
+
 import Produtos.Item
 import Produtos.TipoEnum
 
@@ -6,12 +7,14 @@ class Carrinho {
     companion object {
         val listaProdutos = mutableMapOf<Int, Item>()
         private var numero = 1
-        val descriptorXSalada = mutableListOf("Alface","Tomate","Hamburguer","Maionese")
-        val descriptorXBurguer = mutableListOf("Alface","Tomate","Hamburguer","Maionese", "Bacon", "Ovos")
+        val descriptorXSalada = mutableListOf("Alface", "Tomate", "Hamburguer", "Maionese")
+        val descriptorXBurguer = mutableListOf("Alface", "Tomate", "Hamburguer", "Maionese", "Bacon", "Ovos")
     }
+
     private fun gerarCodigo(): Int {
         return numero++
     }
+
     private fun exibirProdutos() {
         println("======================== Carrinho de Compras ========================")
         if (listaProdutos.isEmpty()) {
@@ -23,7 +26,8 @@ class Carrinho {
         }
         println()
     }
-    private fun exibirIngrediente(code: Int){
+
+    private fun exibirIngrediente(code: Int) {
         println("======================== Ingredientes ========================")
         if (listaProdutos.isEmpty()) {
             println("Nenhum produto encontrado.")
@@ -32,6 +36,7 @@ class Carrinho {
         }
         println()
     }
+
     fun comprarLanche() {
         println("======================== Lanches ========================")
         println("1. X-burger - R$10,00 | 2. X-salada - R$12,00 | 3. Nenhum")
@@ -48,6 +53,7 @@ class Carrinho {
         }
         comprarBebida()
     }
+
     fun comprarBebida() {
         val descriptorBebida = mutableListOf("Bebida")
         println("======================== Bebidas ========================")
@@ -58,13 +64,14 @@ class Carrinho {
             1 -> comprarProduto("Refrigerante", 8.00, descriptorBebida, TipoEnum.BEBIDA)
             2 -> comprarProduto("Suco", 6.00, descriptorBebida, TipoEnum.BEBIDA)
             3 -> println("Nenhuma bebida selecionada!")
-            else ->{
+            else -> {
                 println("Opção inválida, tente novamente!")
                 comprarBebida()
             }
         }
         continuarComprando()
     }
+
     private fun comprarProduto(nome: String, valor: Double, descriptor: MutableList<String>, tipoEnum: TipoEnum) {
         print("Qual quantidade você deseja:")
         val quantidade = readln().toIntOrNull()
@@ -80,9 +87,10 @@ class Carrinho {
             println()
         } else {
             println("Quantidade inválida.")
-            comprarProduto(nome,valor,descriptor, tipoEnum)
+            comprarProduto(nome, valor, descriptor, tipoEnum)
         }
     }
+
     private fun continuarComprando() {
         println()
         println("Qual opção você deseja:")
@@ -99,23 +107,24 @@ class Carrinho {
             }
         }
     }
+
     private fun editarItem() {
         if (listaProdutos.isEmpty()) {
             println("O carrinho está vazio, adicione um produto para editar.")
             continuarComprando()
         }
         var contador = 0
-        for (item in listaProdutos){
+        for (item in listaProdutos) {
             if (item.value.tipoEnum.equals(TipoEnum.BEBIDA)) {
-                contador ++
+                contador++
             }
         }
-        if (contador == listaProdutos.size){
+        if (contador == listaProdutos.size) {
             println("No carrinho só tem Bebida, não será possivel editar nenhum item")
             continuarComprando()
         }
         println("Produtos disponiveis para editar!")
-        for (item in listaProdutos){
+        for (item in listaProdutos) {
             if (item.value.tipoEnum.equals(TipoEnum.COMIDA)) {
                 println("Código - ${item.key} | Nome - ${item.value.nome}")
             }
@@ -138,7 +147,8 @@ class Carrinho {
             editarItem()
         }
     }
-    private fun adicionarIngredientes(code: Int){
+
+    private fun adicionarIngredientes(code: Int) {
         println()
         println("======================== Adicionais Disponíveis ========================")
         println("1. Cheddar | 2. Calabresa")
@@ -155,13 +165,13 @@ class Carrinho {
         exibirIngrediente(code)
         continuarComprando()
     }
+
     private fun removerIngredientes(code: Int) {
         println()
         println("======================== Ingredientes Disponíveis para Remoção ========================")
         for ((index, ingrediente) in listaProdutos[code]?.descricao?.withIndex() ?: emptyList<String>().withIndex()) {
             println("${index + 1}. $ingrediente")
         }
-
         println("Digite o número do ingrediente que deseja remover:")
         val value = readlnOrNull()?.toIntOrNull() ?: 0
         if (value in 1 until (listaProdutos[code]?.descricao?.size ?: 0)) {
@@ -173,6 +183,7 @@ class Carrinho {
         }
         continuarComprando()
     }
+
     private fun removerItem() {
         exibirProdutos()
         println()
@@ -194,10 +205,11 @@ class Carrinho {
             removerItem()
         }
     }
+
     fun finalizarCompra() {
         if (listaProdutos.isEmpty()) {
             println("O carrinho está vazio. Para finalizar o pedido é necessario adicionar um produto!.")
-            continuarComprando()
+            main()
         }
         exibirProdutos()
         println("Valor total do pedido: R$${calcularValorTotalPedido()}")
@@ -212,19 +224,15 @@ class Carrinho {
                 listaProdutos.clear()
             }
             4 -> {
-                println("Digite o valor em dinheiro que irá pagar:")
-                var valorAPagar = false
-
-                while (!valorAPagar) {
-                    val valorPago = readln().toDoubleOrNull()
-                    if (valorPago != null && valorPago >= calcularValorTotalPedido()) {
-                        val troco = valorPago - calcularValorTotalPedido()
-                        println("Compra finalizada com sucesso! Troco: R$$troco.\nObrigada pela preferência, quando bater a fome, já sabe onde procurar!")
-                        listaProdutos.clear()
-                        valorAPagar = true
-                    } else {
-                        println("Valor em dinheiro insuficiente. Digite novamente!")
-                    }
+                val valorPago = readIntInput("Digite o valor em dinheiro que irá pagar:")
+                if (valorPago >= calcularValorTotalPedido()) {
+                    val troco = valorPago - calcularValorTotalPedido()
+                    println("Compra finalizada com sucesso! Troco: R$$troco.\nObrigada pela preferência, quando bater a fome, já sabe onde procurar!")
+                    listaProdutos.clear()
+                    main()
+                } else {
+                    println("Valor em dinheiro insuficiente. Digite novamente:")
+                    finalizarCompra()
                 }
             }
             else -> {
@@ -233,6 +241,24 @@ class Carrinho {
             }
         }
     }
+
+    fun readIntInput(prompt: String): Double {
+        while (true) {
+            print(prompt)
+            val input = readlnOrNull()
+
+            try {
+                if (input != null) {
+                    return input.toDouble()
+                } else {
+                    throw NumberFormatException()
+                }
+            } catch (e: NumberFormatException) {
+                println("Entrada inválida. Por favor, digite um número inteiro válido.")
+            }
+        }
+    }
+
     fun calcularValorTotalPedido(): Double {
         return listaProdutos.values.sumByDouble { it.valorTotal() }
     }

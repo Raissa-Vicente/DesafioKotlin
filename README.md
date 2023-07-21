@@ -12,8 +12,9 @@
 ## Linguagem de uso: **Kotlin**
 Um trecho de código escrito em Kotlin:
 ~~~kotlin
-for ((index, ingrediente) in listaProdutos[code]?.descricao?.withIndex() ?: emptyList<String>().withIndex()) {
-    println("${index + 1}. $ingrediente")
+if (value in 1 until (listaProdutos[code]?.descricao?.size ?: 0)) {
+    listaProdutos[code]?.descricao?.removeAt(value - 1)
+    exibirIngrediente(code)
 }
 ~~~
 ### **Pessoa Autora**
