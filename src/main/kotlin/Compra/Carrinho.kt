@@ -141,8 +141,7 @@ class Carrinho {
     private fun adicionarIngredientes(code: Int){
         println()
         println("======================== Adicionais Disponíveis ========================")
-        println("SimCity FastFood está comemorando 10 anos, e quem ganha o presente é você!\nPara cada lanche comprado você ganha os adicionais de brinde")
-        println("\t1. Cheddar | 2. Calabresa")
+        println("1. Cheddar | 2. Calabresa")
 
         val value = readlnOrNull()?.toIntOrNull() ?: 0
         when (value) {

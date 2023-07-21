@@ -7,9 +7,11 @@ fun main() {
     while (!entrada) {
         try {
             println()
-            println("======= Bem-vindo ao SimCity FastFood =======")
-            println("\t\t=========== Menu ===========")
-            println("\t\t\t1. Lanche | 2. Bebida")
+            println("======================== Bem-vindo ao SimCity FastFood ========================")
+            println("SimCity FastFood está comemorando 10 anos, e quem ganha o presente é você!\nPara cada lanche comprado você ganha os adicionais de brinde")
+
+            println("\t\t\t\t\t=========== Menu ===========")
+            println("\t\t\t\t\t\t1. Lanche | 2. Bebida")
             val opcao = readlnOrNull()?.toIntOrNull() ?: 0
 
             when (opcao) {
