@@ -20,8 +20,6 @@ fun main() {
             TimeUnit.SECONDS.sleep(3)
         }catch (exception: NumberFormatException){
             println("Formato inválido, para escolher o item, você deve informar o número dele!")
-        }catch (exception2: IllegalArgumentException){
-            println("Opção invalida, tente novamente!")
         }
     }
 }

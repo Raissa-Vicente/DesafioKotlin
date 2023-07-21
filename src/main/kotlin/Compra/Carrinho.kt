@@ -13,37 +13,35 @@ class Carrinho {
         return numero++
     }
     private fun exibirProdutos() {
-        println("===== Carrinho de Compras =====")
+        println("======================== Carrinho de Compras ========================")
         if (listaProdutos.isEmpty()) {
             println("O carrinho está vazio.")
         } else {
             for ((codigo, item) in listaProdutos) {
                 println("Código - $codigo | Nome - ${item.nome} | Valor - R$${item.valor}")
-                println()
             }
         }
+        println()
     }
     private fun exibirIngrediente(code: Int){
-        println("===== Ingredientes =====")
+        println("======================== Ingredientes ========================")
         if (listaProdutos.isEmpty()) {
             println("Nenhum produto encontrado.")
         } else {
             println("Produto -  ${listaProdutos[code]?.nome} | Ingredientes - ${listaProdutos[code]?.descricao}")
         }
+        println()
     }
     fun comprarLanche() {
-        println("===== Lanches =====")
+        println("======================== Lanches ========================")
         println("1. X-burger - R$10,00 | 2. X-salada - R$12,00 | 3. Nenhum")
         val option = readln().toIntOrNull() ?: 0
 
         when (option) {
             1 -> comprarProduto("X-Burger", 10.00, descriptorXBurguer, TipoEnum.COMIDA)
             2 -> comprarProduto("X-Salada", 12.00, descriptorXSalada, TipoEnum.COMIDA)
-            3 -> {
-                println("Nenhum lanche selecionado!")
-                println()
-            }
-            else ->{
+            3 -> println("Nenhum lanche selecionado!")
+            else -> {
                 println("Opção inválida, tente novamente!")
                 comprarLanche()
             }
@@ -52,7 +50,7 @@ class Carrinho {
     }
     fun comprarBebida() {
         val descriptorBebida = mutableListOf("Bebida")
-        println("===== Bebidas =====")
+        println("======================== Bebidas ========================")
         println("1. Refrigerantes - R$ 8,00 | 2. Sucos - R$ 6,00 | 3. Nenhuma")
         val option = readln().toIntOrNull() ?: 0
 
@@ -68,7 +66,7 @@ class Carrinho {
         continuarComprando()
     }
     private fun comprarProduto(nome: String, valor: Double, descriptor: MutableList<String>, tipoEnum: TipoEnum) {
-        println("Qual quantidade você deseja?")
+        print("Qual quantidade você deseja:")
         val quantidade = readln().toIntOrNull()
 
         if (quantidade != null && quantidade >= 0) {
@@ -76,17 +74,19 @@ class Carrinho {
                 val codigo = gerarCodigo()
                 listaProdutos[codigo] = Item(codigo, nome, 1, valor, descriptor, tipoEnum)
             }
-            println("Valor total do pedido até o momento - R$${calcularValorTotalPedido()}")
             println("Produto adicionado ao carrinho!")
             exibirProdutos()
+            print("Valor total do pedido até o momento - R$${calcularValorTotalPedido()}")
+            println()
         } else {
             println("Quantidade inválida.")
             comprarProduto(nome,valor,descriptor, tipoEnum)
         }
     }
     private fun continuarComprando() {
-        println("Deseja comprar mais algum item?")
+        println()
         println("1. Adicionar item  |  2. Editar | 3. remover item | 4. Finalizar")
+        print("Qual opção você deseja:")
         val value = readln().toIntOrNull()
         when (value) {
             1 -> comprarLanche()
@@ -114,22 +114,20 @@ class Carrinho {
             println("No carrinho só tem Bebida, não será possivel editar nenhum item")
             continuarComprando()
         }
+        println("Produtos disponiveis para editar!")
         for (item in listaProdutos){
             if (item.value.tipoEnum.equals(TipoEnum.COMIDA)) {
-                println("Produtos disponiveis para editar!")
                 println("Código - ${item.key} | Nome - ${item.value.nome}")
             }
         }
         print("Digite o código do produto que você deseja editar:")
-        val code = readln().toInt()
-
+        val code = readlnOrNull()?.toIntOrNull() ?: 0
         if (listaProdutos.containsKey(code)) {
-            println("1. Adicionar ingredientes | 2. Remover ingredientes")
-            val option = readlnOrNull()?.toIntOrNull() ?: 0
-
-            when (option) {
-                1 -> adicionarIngredientes(code)
-                2 -> removerIngredientes(code)
+            print("1. Adicionar ingredientes | 2. Remover ingredientes")
+            val option = readlnOrNull()?.toIntOrNull()
+            when {
+                (option != null && option == 1) -> adicionarIngredientes(code)
+                (option != null && option == 2) -> removerIngredientes(code)
                 else -> {
                     println("Opção inválida, tente novamente!")
                     editarItem()
@@ -141,7 +139,8 @@ class Carrinho {
         }
     }
     private fun adicionarIngredientes(code: Int){
-        println("====== Adicionais Disponíveis ======")
+        println()
+        println("======================== Adicionais Disponíveis ========================")
         println("\t1. Cheddar | 2. Calabresa")
 
         val value = readlnOrNull()?.toIntOrNull() ?: 0
@@ -157,7 +156,8 @@ class Carrinho {
         continuarComprando()
     }
     private fun removerIngredientes(code: Int) {
-        println("====== Ingredientes Disponíveis para Remoção ======")
+        println()
+        println("======================== Ingredientes Disponíveis para Remoção ========================")
         for ((index, ingrediente) in listaProdutos[code]?.descricao?.withIndex() ?: emptyList<String>().withIndex()) {
             println("${index + 1}. $ingrediente")
         }
@@ -174,10 +174,9 @@ class Carrinho {
         continuarComprando()
     }
     private fun removerItem() {
-        println()
         exibirProdutos()
         println()
-        println("Digite o código do produto que deseja remover:")
+        print("Digite o código do produto que deseja remover:")
         val codigo = readlnOrNull()?.toIntOrNull()
 
         if (codigo != null) {
@@ -197,8 +196,8 @@ class Carrinho {
     }
     fun finalizarCompra() {
         if (listaProdutos.isEmpty()) {
-            println("O carrinho está vazio. Obrigada pela preferência, quando bater a fome, já sabe onde procurar!.")
-            return
+            println("O carrinho está vazio. Para finalizar o pedido é necessario adicionar um produto!.")
+            continuarComprando()
         }
         exibirProdutos()
         println("Valor total do pedido: R$${calcularValorTotalPedido()}")
