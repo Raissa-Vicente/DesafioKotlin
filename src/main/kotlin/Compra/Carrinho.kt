@@ -85,8 +85,8 @@ class Carrinho {
     }
     private fun continuarComprando() {
         println()
+        println("Qual opção você deseja:")
         println("1. Adicionar item  |  2. Editar | 3. remover item | 4. Finalizar")
-        print("Qual opção você deseja:")
         val value = readln().toIntOrNull()
         when (value) {
             1 -> comprarLanche()
@@ -123,7 +123,7 @@ class Carrinho {
         print("Digite o código do produto que você deseja editar:")
         val code = readlnOrNull()?.toIntOrNull() ?: 0
         if (listaProdutos.containsKey(code)) {
-            print("1. Adicionar ingredientes | 2. Remover ingredientes")
+            println("1. Adicionar ingredientes | 2. Remover ingredientes")
             val option = readlnOrNull()?.toIntOrNull()
             when {
                 (option != null && option == 1) -> adicionarIngredientes(code)
@@ -141,6 +141,7 @@ class Carrinho {
     private fun adicionarIngredientes(code: Int){
         println()
         println("======================== Adicionais Disponíveis ========================")
+        println("SimCity FastFood está comemorando 10 anos, e quem ganha o presente é você!\nPara cada lanche comprado você ganha os adicionais de brinde")
         println("\t1. Cheddar | 2. Calabresa")
 
         val value = readlnOrNull()?.toIntOrNull() ?: 0

@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e955e6c0-d979-4d3c-ac92-68ca556458e0" name="Changes" comment="Iniciando desafio">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Compra/Carrinho.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Compra/Carrinho.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Compra/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Compra/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689956481662</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Iniciando desafio">
+      <created>1689960702015</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1689960702015</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
