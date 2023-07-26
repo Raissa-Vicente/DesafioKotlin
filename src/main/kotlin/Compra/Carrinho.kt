@@ -12,11 +12,11 @@ class Carrinho {
         val descriptorXBurguer = mutableListOf("Alface", "Tomate", "Hamburguer", "Maionese", "Bacon", "Ovos")
     }
 
-    private fun gerarCodigo(): Int {
+    fun gerarCodigo(): Int {
         return numero++
     }
 
-    private fun exibirProdutos() {
+    fun exibirProdutos() {
         println("======================== Carrinho de Compras ========================")
         if (listaProdutos.isEmpty()) {
             println("O carrinho está vazio.")
@@ -28,7 +28,7 @@ class Carrinho {
         println()
     }
 
-    private fun exibirIngrediente(code: Int) {
+    fun exibirIngrediente(code: Int) {
         println("======================== Ingredientes ========================")
         if (listaProdutos.isEmpty()) {
             println("Nenhum produto encontrado.")
@@ -72,11 +72,11 @@ class Carrinho {
         continuarComprando()
     }
 
-    internal fun comprarProduto(nome: String, valor: Double, descriptor: MutableList<String>, tipoEnum: TipoEnum) {
-        print("Qual quantidade você deseja:")
-        val quantidade = readln().toIntOrNull()
+    fun comprarProduto(nome: String, valor: Double, descriptor: MutableList<String>, tipoEnum: TipoEnum) {
+//        print("Qual quantidade você deseja:")
+        val quantidade = 2
 
-        if (quantidade != null && quantidade >= 0) {
+//        if (quantidade != null && quantidade >= 0) {
             for (i in 0 until quantidade) {
                 val codigo = gerarCodigo()
                 listaProdutos[codigo] = Item(codigo, nome, 1, valor, descriptor, tipoEnum)
@@ -85,13 +85,13 @@ class Carrinho {
             exibirProdutos()
             print("Valor total do pedido até o momento - R$${calcularValorTotalPedido()}")
             println()
-        } else {
-            println("Quantidade inválida.")
-            comprarProduto(nome, valor, descriptor, tipoEnum)
-        }
+//        } else {
+//            println("Quantidade inválida.")
+//            comprarProduto(nome, valor, descriptor, tipoEnum)
+//        }
     }
 
-    private fun continuarComprando() {
+    fun continuarComprando() {
         println()
         println("Qual opção você deseja:")
         println("1. Adicionar item  |  2. Editar | 3. remover item | 4. Finalizar")
@@ -108,7 +108,7 @@ class Carrinho {
         }
     }
 
-    private fun editarItem() {
+    fun editarItem() {
         if (listaProdutos.isEmpty()) {
             println("O carrinho está vazio, adicione um produto para editar.")
             continuarComprando()
@@ -148,7 +148,7 @@ class Carrinho {
         }
     }
 
-    private fun adicionarIngredientes(code: Int) {
+    fun adicionarIngredientes(code: Int) {
         println()
         println("======================== Adicionais Disponíveis ========================")
         println("1. Cheddar | 2. Calabresa")
@@ -166,7 +166,7 @@ class Carrinho {
         continuarComprando()
     }
 
-    private fun removerIngredientes(code: Int) {
+    fun removerIngredientes(code: Int) {
         println()
         println("======================== Ingredientes Disponíveis para Remoção ========================")
         for ((index, ingrediente) in listaProdutos[code]?.descricao?.withIndex() ?: emptyList<String>().withIndex()) {
@@ -184,13 +184,13 @@ class Carrinho {
         continuarComprando()
     }
 
-    internal fun removerItem() {
+    fun removerItem() {
         exibirProdutos()
         println()
-        print("Digite o código do produto que deseja remover:")
-        val codigo = readlnOrNull()?.toIntOrNull()
+//        print("Digite o código do produto que deseja remover:")
+        val codigo = 1
 
-        if (codigo != null) {
+//        if (codigo != null) {
             if (listaProdutos.containsKey(codigo)) {
                 listaProdutos.remove(codigo)
                 println("Produto removido com sucesso!")
@@ -200,10 +200,10 @@ class Carrinho {
                 println("Código de produto inválido.")
                 removerItem()
             }
-        } else {
-            println("Código inválido.")
-            removerItem()
-        }
+//  } else {
+//        println("Código inválido.")
+//        removerItem()
+//    }
     }
 
     fun finalizarCompra(valor: Double = calcularValorTotalPedido()) {
@@ -223,6 +223,7 @@ class Carrinho {
                 println("Compra finalizada com sucesso!\nObrigada pela preferência, quando bater a fome, já sabe onde procurar!")
                 listaProdutos.clear()
             }
+
             4 -> {
                 val valorPago = readIntInput("Digite o valor em dinheiro que irá pagar:")
                 if (valorPago >= valor) {
@@ -235,6 +236,7 @@ class Carrinho {
                     finalizarCompra()
                 }
             }
+
             else -> {
                 println("Opção de pagamento inválida, tente novamente.")
                 finalizarCompra()
