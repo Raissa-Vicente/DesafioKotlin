@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e955e6c0-d979-4d3c-ac92-68ca556458e0" name="Changes" comment="Iniciando desafio">
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/CarrinhoTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Desafio3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Desafio3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Compra/Carrinho.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Compra/Carrinho.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Compra/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Compra/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Enum" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -63,7 +67,8 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/raissa.carvalho/Desktop/Desafio3&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/raissa.carvalho/Desktop/Desafio3&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -79,7 +84,46 @@
       <recent name="Itens" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.CarrinhoTest.testComprarProduto">
+    <configuration name="CarrinhoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Desafio3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CarrinhoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CarrinhoTest.testAdicionarProduto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Desafio3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CarrinhoTest" />
+      <option name="METHOD_NAME" value="testAdicionarProduto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CarrinhoTest.testComprarProduto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Desafio3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CarrinhoTest" />
+      <option name="METHOD_NAME" value="testComprarProduto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CarrinhoTest.testRemoverProduto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Desafio3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CarrinhoTest" />
+      <option name="METHOD_NAME" value="testRemoverProduto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Compra.MainKt" />
       <module name="Desafio3" />
@@ -89,7 +133,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CarrinhoTest.testComprarProduto" />
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="JUnit.CarrinhoTest.testAdicionarProduto" />
+        <item itemvalue="JUnit.CarrinhoTest.testRemoverProduto" />
+        <item itemvalue="JUnit.CarrinhoTest" />
       </list>
     </recent_temporary>
   </component>
@@ -193,11 +241,43 @@
       <option name="project" value="LOCAL" />
       <updated>1689961642401</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Iniciando desafio">
+      <created>1689965047653</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1689965047653</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Iniciando desafio">
+      <created>1689965207863</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1689965207863</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Iniciando desafio">
+      <created>1689965739626</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1689965739626</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Iniciando desafio">
+      <created>1689965770185</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1689965770185</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Iniciando desafio" />
     <option name="LAST_COMMIT_MESSAGE" value="Iniciando desafio" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

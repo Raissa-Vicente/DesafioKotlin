@@ -7,6 +7,7 @@ class Carrinho {
     companion object {
         val listaProdutos = mutableMapOf<Int, Item>()
         private var numero = 1
+        val descriptorBebida = mutableListOf("Bebida")
         val descriptorXSalada = mutableListOf("Alface", "Tomate", "Hamburguer", "Maionese")
         val descriptorXBurguer = mutableListOf("Alface", "Tomate", "Hamburguer", "Maionese", "Bacon", "Ovos")
     }
@@ -55,7 +56,6 @@ class Carrinho {
     }
 
     fun comprarBebida() {
-        val descriptorBebida = mutableListOf("Bebida")
         println("======================== Bebidas ========================")
         println("1. Refrigerantes - R$ 8,00 | 2. Sucos - R$ 6,00 | 3. Nenhuma")
         val option = readln().toIntOrNull() ?: 0
@@ -72,7 +72,7 @@ class Carrinho {
         continuarComprando()
     }
 
-    private fun comprarProduto(nome: String, valor: Double, descriptor: MutableList<String>, tipoEnum: TipoEnum) {
+    internal fun comprarProduto(nome: String, valor: Double, descriptor: MutableList<String>, tipoEnum: TipoEnum) {
         print("Qual quantidade você deseja:")
         val quantidade = readln().toIntOrNull()
 
@@ -184,7 +184,7 @@ class Carrinho {
         continuarComprando()
     }
 
-    private fun removerItem() {
+    internal fun removerItem() {
         exibirProdutos()
         println()
         print("Digite o código do produto que deseja remover:")
@@ -206,13 +206,13 @@ class Carrinho {
         }
     }
 
-    fun finalizarCompra() {
+    fun finalizarCompra(valor: Double = calcularValorTotalPedido()) {
         if (listaProdutos.isEmpty()) {
             println("O carrinho está vazio. Para finalizar o pedido é necessario adicionar um produto!.")
             main()
         }
         exibirProdutos()
-        println("Valor total do pedido: R$${calcularValorTotalPedido()}")
+        println("Valor total do pedido: R$$valor")
         println()
         println("Selecione a forma de pagamento:")
         println("1. Cartão de crédito | 2. Cartão de débito | 3. Vale refeição | 4. Dinheiro")
@@ -225,8 +225,8 @@ class Carrinho {
             }
             4 -> {
                 val valorPago = readIntInput("Digite o valor em dinheiro que irá pagar:")
-                if (valorPago >= calcularValorTotalPedido()) {
-                    val troco = valorPago - calcularValorTotalPedido()
+                if (valorPago >= valor) {
+                    val troco = valorPago - valor
                     println("Compra finalizada com sucesso! Troco: R$$troco.\nObrigada pela preferência, quando bater a fome, já sabe onde procurar!")
                     listaProdutos.clear()
                     main()
