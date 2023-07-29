@@ -8,7 +8,7 @@ import Produtos.TipoEnum
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito.mock
+import org.mockito.Mockito.*
 
 class CarrinhoTest {
     private var carrinho = Carrinho()
@@ -18,7 +18,6 @@ class CarrinhoTest {
         carrinho = Carrinho()
         mockItem = mock(Item::class.java)
     }
-
     @Test
     fun testComprarProdutoSemMock(){
         listaProdutos[123] = Item(123, "X-Burger", 1, 10.00, descriptorXBurguer, TipoEnum.COMIDA)
@@ -37,45 +36,43 @@ class CarrinhoTest {
         assertEquals(1, listaProdutos.size)
         assertEquals(10.00,carrinho.calcularValorTotalPedido())
     }
-//    @Test
-//    fun testComprarProduto() {
-//        // Configuração do mockItem
-//        `when`(mockItem.valorTotal()).thenReturn(10.00)
-//
-//        // Compra de um produto
-//        carrinho.comprarProduto("X-Burger", 10.00, descriptorXBurguer, TipoEnum.COMIDA)
-//
-//        // Verificação
-//        verify(mockItem, times(1)).valorTotal()
-//        assertEquals(1, Carrinho.listaProdutos.size)
-//        assertEquals(10.00, carrinho.calcularValorTotalPedido(), 0.001)
-//    }
+    @Test
+    fun testComprarProduto() {
+        // Configuração do mockItem
+        `when`(mockItem.valorTotal()).thenReturn(10.00)
 
-//    @Test
-//    fun testEditarItem_AdicionarIngredientes() {
-//        // Adicionar um item mock ao carrinho
-//        Carrinho.listaProdutos[1] = mockItem
-//
-//        // Configuração do mockItem
-//        `when`(mockItem.tipoEnum).thenReturn(TipoEnum.COMIDA)
-//        `when`<List<String>>(mockItem.descricao).thenReturn(ArrayList())
-//
-//        // Chamar o método editarItem() para adicionar ingredientes
-//        carrinho.editarItem()
-//        // TODO: Verificar se os ingredientes foram adicionados corretamente ao mockItem
-//    }
+        // Compra de um produto
+        carrinho.comprarProduto("X-Burger", 10.00, descriptorXBurguer, TipoEnum.COMIDA)
 
-//    @Test
-//    fun testEditarItem_RemoverIngredientes() {
-//        // Adicionar um item mock ao carrinho
-//        Carrinho.listaProdutos[1] = mockItem
-//
-//        // Configuração do mockItem
-//        `when`(mockItem.tipoEnum).thenReturn(TipoEnum.COMIDA)
-//        `when`<List<String>>(mockItem.descricao).thenReturn(ArrayList())
-//
-//        // Chamar o método editarItem() para remover ingredientes
-//        carrinho.editarItem()
-//        // TODO: Verificar se os ingredientes foram removidos corretamente do mockItem
-//    }
+        // Verificação
+        verify(mockItem, times(1)).valorTotal()
+        assertEquals(1, Carrinho.listaProdutos.size)
+        assertEquals(10.00, carrinho.calcularValorTotalPedido(), 0.001)
+    }
+    @Test
+    fun testEditarItem_AdicionarIngredientes() {
+        // Adicionar um item mock ao carrinho
+        listaProdutos[1] = mockItem
+
+        // Configuração do mockItem
+        doReturn(TipoEnum.COMIDA).`when`(mockItem).tipoEnum
+        doReturn(ArrayList<String>()).`when`(mockItem).descricao
+
+        // Chamar o método editarItem() para adicionar ingredientes
+        carrinho.editarItem()
+        // Verificar se os ingredientes foram adicionados corretamente ao mockItem
+    }
+    @Test
+    fun testEditarItem_RemoverIngredientes() {
+        // Adicionar um item mock ao carrinho
+        Carrinho.listaProdutos[1] = mockItem
+
+        // Configuração do mockItem
+        `when`(mockItem.tipoEnum).thenReturn(TipoEnum.COMIDA)
+        `when`<List<String>>(mockItem.descricao).thenReturn(ArrayList())
+
+        // Chamar o método editarItem() para remover ingredientes
+        carrinho.editarItem()
+        // Verificar se os ingredientes foram removidos corretamente do mockItem
+    }
 }
